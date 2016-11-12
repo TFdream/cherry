@@ -59,15 +59,16 @@ public class PluginManager {
         }
 
         if(!init){
-            doInit(basePath);
+            init= true;
+            pluginClassLoader = doInit(basePath);
         }else{
             pluginClassLoader.addToClassLoader(basePath, null, true);
         }
 
     }
 
-    private synchronized void doInit(String basePath){
-        pluginClassLoader = new PluginClassLoader(basePath);
-        init = true;
+    private synchronized PluginClassLoader doInit(String basePath){
+        PluginClassLoader pluginClassLoader = new PluginClassLoader(basePath);
+        return pluginClassLoader;
     }
 }
