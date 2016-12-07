@@ -1,9 +1,9 @@
 package com.bytebeats.example.host;
 
-import com.bytebeats.switcher.core.PluginManager;
-import com.bytebeats.switcher.example.api.IHelloService;
-import com.bytebeats.switcher.example.api.IUserService;
-import com.bytebeats.switcher.example.domain.User;
+import com.bytebeats.pandora.core.PluginManager;
+import com.bytebeats.pandora.example.api.IHelloService;
+import com.bytebeats.pandora.example.api.IUserService;
+import com.bytebeats.pandora.example.domain.User;
 
 import java.util.List;
 

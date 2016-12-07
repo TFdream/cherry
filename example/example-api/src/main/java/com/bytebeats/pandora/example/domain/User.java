@@ -1,4 +1,4 @@
-package com.bytebeats.switcher.example.domain;
+package com.bytebeats.pandora.example.domain;
 
 /**
  * ${DESCRIPTION}

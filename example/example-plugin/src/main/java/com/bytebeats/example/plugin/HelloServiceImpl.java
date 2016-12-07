@@ -1,6 +1,6 @@
 package com.bytebeats.example.plugin;
 
-import com.bytebeats.switcher.example.api.IHelloService;
+import com.bytebeats.pandora.example.api.IHelloService;
 
 /**
  * ${DESCRIPTION}

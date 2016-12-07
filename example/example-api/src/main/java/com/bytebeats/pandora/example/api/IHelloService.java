@@ -1,4 +1,4 @@
-package com.bytebeats.switcher.example.api;
+package com.bytebeats.pandora.example.api;
 
 /**
  * ${DESCRIPTION}

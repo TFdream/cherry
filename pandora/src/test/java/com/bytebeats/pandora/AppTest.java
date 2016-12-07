@@ -1,4 +1,4 @@
-package com.bytebeats.switcher;
+package com.bytebeats.pandora;
 
 import org.junit.Test;
 

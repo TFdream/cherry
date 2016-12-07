@@ -1,6 +1,6 @@
-package com.bytebeats.switcher.core;
+package com.bytebeats.pandora.core;
 
-import com.bytebeats.switcher.util.StringUtils;
+import com.bytebeats.pandora.util.StringUtils;
 import java.io.File;
 
 /**

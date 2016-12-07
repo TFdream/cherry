@@ -1,6 +1,6 @@
-package com.bytebeats.switcher.example.api;
+package com.bytebeats.pandora.example.api;
 
-import com.bytebeats.switcher.example.domain.User;
+import com.bytebeats.pandora.example.domain.User;
 
 import java.util.List;
 

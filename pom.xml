@@ -3,17 +3,17 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.bytebeats</groupId>
-    <artifactId>switcher-parent</artifactId>
+    <artifactId>pandora-parent</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <packaging>pom</packaging>
 
     <modules>
-        <module>switcher</module>
+        <module>pandora</module>
         <module>example</module>
     </modules>
 
-    <name>switcher-parent</name>
+    <name>pandora-parent</name>
     <url>http://maven.apache.org</url>
 
     <properties>

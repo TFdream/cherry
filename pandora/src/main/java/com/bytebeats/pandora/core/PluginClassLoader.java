@@ -1,6 +1,6 @@
-package com.bytebeats.switcher.core;
+package com.bytebeats.pandora.core;
 
-import com.bytebeats.switcher.util.IoUtils;
+import com.bytebeats.pandora.util.IoUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.io.File;

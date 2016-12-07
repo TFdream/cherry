@@ -1,7 +1,7 @@
 package com.bytebeats.example.plugin;
 
-import com.bytebeats.switcher.example.api.IUserService;
-import com.bytebeats.switcher.example.domain.User;
+import com.bytebeats.pandora.example.api.IUserService;
+import com.bytebeats.pandora.example.domain.User;
 
 import java.util.ArrayList;
 import java.util.List;
