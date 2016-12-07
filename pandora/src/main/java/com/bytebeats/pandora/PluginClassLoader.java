@@ -1,4 +1,4 @@
-package com.bytebeats.pandora.core;
+package com.bytebeats.pandora;
 
 import com.bytebeats.pandora.util.IoUtils;
 import org.slf4j.Logger;

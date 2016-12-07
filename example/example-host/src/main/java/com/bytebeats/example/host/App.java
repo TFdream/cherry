@@ -1,6 +1,6 @@
 package com.bytebeats.example.host;
 
-import com.bytebeats.pandora.core.PluginManager;
+import com.bytebeats.pandora.PluginManager;
 import com.bytebeats.pandora.example.api.IHelloService;
 import com.bytebeats.pandora.example.api.IUserService;
 import com.bytebeats.pandora.example.domain.User;
@@ -15,13 +15,12 @@ public class App {
 
     public static void main( String[] args ) {
 
-        PluginManager pluginManager = PluginManager.getMgr();
-        pluginManager.addExternalJar("D:\\osgi");
+        PluginManager<IHelloService> pluginManager = PluginManager.load(IHelloService.class);
 
-        IHelloService helloService = pluginManager.getPlugin("com.bytebeats.example.plugin.HelloServiceImpl", IHelloService.class);
+        IHelloService helloService = pluginManager.getPlugin("com.bytebeats.example.plugin.HelloServiceImpl");
         helloService.hello("ricky");
 
-        IUserService userService = pluginManager.getPlugin("com.bytebeats.example.plugin.UserServiceImpl", IUserService.class);
+        IUserService userService = pluginManager.load(IUserService.class).getPlugin("com.bytebeats.example.plugin.UserServiceImpl");
         List<User> list = userService.getUsers();
         System.out.println("list = [" + list + "]");
 
