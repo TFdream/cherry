@@ -3,17 +3,17 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.bytebeats</groupId>
-    <artifactId>pandora-parent</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <artifactId>cherry</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
 
     <packaging>pom</packaging>
 
     <modules>
-        <module>pandora</module>
-        <module>example</module>
+        <module>cherry-core</module>
+        <module>cherry-example</module>
     </modules>
 
-    <name>pandora-parent</name>
+    <name>cherry</name>
     <url>http://maven.apache.org</url>
 
     <properties>
