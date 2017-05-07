@@ -130,7 +130,7 @@ public class UserServiceImpl implements UserService {
     <property name="path" value="D:/logs/" />
     <property name="threshold" value="100" />
 
-    <!--jars-->
+    <!--external jars-->
     <lib dir="D:/plugins/lib1" regex="" />
     <lib dir="D:/plugins/lib2" regex="" />
 
