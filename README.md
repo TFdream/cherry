@@ -7,6 +7,10 @@ Cherry is a simple and flexible plugins management library written in Java.
 
 1. HelloService.java
 ```
+package cherry.example.api;
+
+import cherry.Plugin;
+
 public interface HelloService extends Plugin {
 
     String echo(String msg);
@@ -17,6 +21,10 @@ public interface HelloService extends Plugin {
 
 2.UserService.java
 ```
+package cherry.example.api;
+
+import cherry.Plugin;
+
 public interface UserService extends Plugin {
 
     User getUser(String name);
