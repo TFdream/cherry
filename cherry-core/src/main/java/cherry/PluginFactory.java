@@ -1,5 +1,7 @@
 package cherry;
 
+import cherry.config.PluginDefinition;
+
 import java.util.List;
 
 /**

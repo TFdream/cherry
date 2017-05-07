@@ -14,6 +14,7 @@ public class App {
 
         PluginFactory pluginManager = new DefaultPluginFactory("plugins.xml");
 
-        Plugin plugin = pluginManager.getPlugin("");
+        Plugin plugin = pluginManager.getPlugin("helloService");
+        System.out.println(plugin);
     }
 }

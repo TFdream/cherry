@@ -1,6 +1,7 @@
 package cherry;
 
 import cherry.config.AppConfig;
+import cherry.config.PluginDefinition;
 import cherry.util.StringUtils;
 import cherry.xml.ConfigParser;
 
@@ -19,7 +20,7 @@ public class DefaultPluginFactory implements PluginFactory {
     private AppConfig config;
 
     public DefaultPluginFactory(String path){
-        this(new File(path));
+        this.config = new ConfigParser().parse(path);
     }
     public DefaultPluginFactory(File file){
         this.config = new ConfigParser().parse(file);

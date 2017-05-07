@@ -1,4 +1,4 @@
-package cherry.context;
+package cherry;
 
 import java.util.List;
 

@@ -1,6 +1,6 @@
 package cherry.config;
 
-import cherry.context.PluginContext;
+import cherry.PluginContext;
 import java.util.List;
 
 /**

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration debug="false">
 
-    <contextName>cherry-demo</contextName>
+    <context-name>cherry-demo</context-name>
 
     <!--variables-->
     <property name="url" value="D:/logs/" />
@@ -34,5 +34,9 @@
         <plugin-name>userService</plugin-name>
         <plugin-class>cherry.example.plugin.UserServiceImpl</plugin-class>
     </plugin>
+
+    <listener>
+        <listener-class>cherry.example.plugin.ExampleContextListener</listener-class>
+    </listener>
 
 </configuration>
