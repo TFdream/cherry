@@ -3,7 +3,8 @@ Cherry is a simple and flexible plugins management library written in Java.
 
 ## Quick Start
 
-### 1.Plugin interface
+### 1.Plugin 接口
+创建一个新module(module名称为xx-api, 参考cherry-example/example-api), 然后分别定义两个接口，如下：
 
 1. HelloService.java
 ```
@@ -35,10 +36,13 @@ public interface UserService extends Plugin {
 }
 ```
 
+注意：HelloService必须实现cherry.Plugin接口
 
-### 2.Plugin Implementation
+### 2.Plugin 接口功能实现
 
-HelloServiceImpl.java
+创建一个新module(module名称推荐为xx-plugin, 参考cherry-example/example-plugin), 编写xx-api中接口的相应的实现即可。
+
+1. HelloServiceImpl.java
 ```
 package cherry.example.plugin;
 
@@ -67,7 +71,7 @@ public class HelloServiceImpl implements HelloService {
 }
 ```
 
-UserServiceImpl.java
+2. UserServiceImpl.java
 ```
 package cherry.example.plugin;
 
@@ -108,7 +112,9 @@ public class UserServiceImpl implements UserService {
 }
 ```
 
-### 3.Declare
+完成后, 使用 maven clean package 命令对xx-plugin项目打包, 将打包生成的 xx-plugin-version.jar 拷贝到某个目录下(路径由plugins.xml中<lib /> 节点dir指定)。
+
+### 3.声明Plugin
 
 plugins.xml
 ```
@@ -151,6 +157,8 @@ plugins.xml
 
 </configuration>
 ```
+
+### 4. 使用Plugin
 
 App.java
 ```
