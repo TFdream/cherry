@@ -15,7 +15,7 @@ public interface HelloService extends Plugin {
 }
 ```
 
-2.
+2.UserService.java
 ```
 public interface UserService extends Plugin {
 

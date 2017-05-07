@@ -31,5 +31,7 @@ public class App {
 
         List<User> list = userService.getUsers();
         System.out.println(list);
+
+        pluginFactory.close();
     }
 }

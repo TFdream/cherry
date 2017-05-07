@@ -13,6 +13,8 @@ import java.util.List;
  */
 public class UserServiceImpl implements UserService {
 
+    private PluginConfig config;
+
     @Override
     public User getUser(String name) {
         User user = new User();
@@ -38,6 +40,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void init(PluginConfig config) {
+        this.config = config;
         System.out.println("UserServiceImpl init...");
     }
 

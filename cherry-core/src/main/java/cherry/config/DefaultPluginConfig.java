@@ -15,10 +15,12 @@ import java.util.Set;
 public class DefaultPluginConfig implements PluginConfig {
     private String pluginName;
     private Map<String, String> params;
+    private PluginContext context;
 
-    public DefaultPluginConfig(PluginDefinition pd) {
+    public DefaultPluginConfig(PluginDefinition pd, PluginContext context) {
         this.pluginName = pd.getName();
         this.params = getInitParams(pd.getParams());
+        this.context = context;
     }
 
     @Override
@@ -28,7 +30,7 @@ public class DefaultPluginConfig implements PluginConfig {
 
     @Override
     public PluginContext getPluginContext() {
-        return null;
+        return context;
     }
 
     @Override

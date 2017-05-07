@@ -31,6 +31,10 @@ public class DefaultPluginFactory implements PluginFactory {
 
     private ConcurrentHashMap<String, Object> pluginInstanceMap = new ConcurrentHashMap<>();
 
+    private PluginContext context = new DefaultPluginContext();
+
+    private volatile boolean closed = false;
+
     public DefaultPluginFactory(String path){
         if(StringUtils.isEmpty(path)){
             throw new IllegalArgumentException("path can not be empty!");
@@ -84,6 +88,22 @@ public class DefaultPluginFactory implements PluginFactory {
     @Override
     public void close() {
 
+        if(!closed){
+            closed = true;
+            for(Object o : pluginInstanceMap.values()) {
+                Plugin plugin = (Plugin) o;
+                try {
+                    plugin.destroy();
+                } catch (Exception e){
+
+                }
+            }
+            context = null;
+            pluginInstanceMap.clear();
+            pluginInstanceMap = null;
+            pluginNameMap.clear();
+            pluginNameMap = null;
+        }
     }
 
     private Object getPlugin(String name, PluginDefinition pd){
@@ -109,7 +129,8 @@ public class DefaultPluginFactory implements PluginFactory {
             //执行初始化方法
             Method method = clazz.getMethod("init", PluginConfig.class);
 
-            PluginConfig config = new DefaultPluginConfig(pd);
+            PluginConfig config = new DefaultPluginConfig(pd, context);
+            method.setAccessible(true);
             method.invoke(plugin, config);
 
             return plugin;

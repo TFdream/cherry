@@ -1,6 +1,6 @@
 package cherry;
 
-import java.util.List;
+import java.util.Set;
 
 /**
  * 上下文对象
@@ -11,7 +11,7 @@ public interface PluginContext {
 
     Object getAttribute(String attr);
 
-    List<String> getAttributeNames();
+    Set<String> getAttributeNames();
 
     void setAttribute(String attr, Object value);
 
