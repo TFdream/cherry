@@ -3,6 +3,7 @@ package cherry.example.plugin;
 import cherry.config.PluginConfig;
 import cherry.example.api.UserService;
 import cherry.example.api.model.User;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -14,26 +15,34 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User getUser(String name) {
-        return null;
+        User user = new User();
+        user.setName(name);
+        user.setPassword("root");
+        user.setAge(25);
+        return user;
     }
 
     @Override
     public List<User> getUsers() {
-        return null;
+        List<User> list = new ArrayList<>();
+        for(int i=0; i<5; i++){
+            list.add(new User("ricky_"+i, "root", 25+i));
+        }
+        return list;
     }
 
     @Override
     public int insert(User user) {
-        return 0;
+        return 1;
     }
 
     @Override
     public void init(PluginConfig config) {
-
+        System.out.println("UserServiceImpl init...");
     }
 
     @Override
     public void destroy() {
-
+        System.out.println("UserServiceImpl destroy...");
     }
 }

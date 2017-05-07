@@ -2,6 +2,7 @@ package cherry.config;
 
 import cherry.PluginContext;
 import java.util.List;
+import java.util.Set;
 
 /**
  * ${DESCRIPTION}
@@ -16,5 +17,5 @@ public interface PluginConfig {
 
     String getInitParameter(String name);
 
-    List<String> getInitParameterNames();
+    Set<String> getInitParameterNames();
 }

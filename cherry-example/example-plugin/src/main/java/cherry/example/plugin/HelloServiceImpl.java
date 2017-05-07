@@ -7,7 +7,6 @@ import cherry.example.api.HelloService;
  * ${DESCRIPTION}
  *
  * @author Ricky Fung
- * @create 2016-11-12 16:13
  */
 public class HelloServiceImpl implements HelloService {
 
@@ -24,11 +23,11 @@ public class HelloServiceImpl implements HelloService {
 
     @Override
     public void init(PluginConfig config) {
-
+        System.out.println("HelloServiceImpl init...");
     }
 
     @Override
     public void destroy() {
-
+        System.out.println("HelloServiceImpl destroy...");
     }
 }

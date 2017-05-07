@@ -1,6 +1,7 @@
 package cherry;
 
 import cherry.config.PluginDefinition;
+import cherry.exception.PluginException;
 
 import java.util.List;
 
@@ -11,9 +12,9 @@ import java.util.List;
  */
 public interface PluginFactory {
 
-    Plugin getPlugin(String name);
+    Plugin getPlugin(String name) throws PluginException;
 
-    Plugin getPlugin(Class<? extends Plugin> type);
+    <T extends Plugin> T getPlugin(Class<T> type) throws PluginException;
 
     PluginDefinition getPluginDefinition(String name);
 
