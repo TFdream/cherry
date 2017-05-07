@@ -7,7 +7,7 @@ package cherry;
  */
 public interface PluginContextListener {
 
-    void contextInitialized(PluginContext event);
+    void contextInitialized(PluginContextEvent event);
 
-    void contextDestroyed(PluginContext event);
+    void contextDestroyed(PluginContextEvent event);
 }

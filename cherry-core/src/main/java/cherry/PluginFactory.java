@@ -13,6 +13,8 @@ public interface PluginFactory {
 
     Plugin getPlugin(String name);
 
+    Plugin getPlugin(Class<? extends Plugin> type);
+
     PluginDefinition getPluginDefinition(String name);
 
     List<String> getPluginNames();

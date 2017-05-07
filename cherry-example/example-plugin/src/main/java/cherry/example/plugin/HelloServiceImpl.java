@@ -1,5 +1,6 @@
 package cherry.example.plugin;
 
+import cherry.config.PluginConfig;
 import cherry.example.api.HelloService;
 
 /**
@@ -11,8 +12,23 @@ import cherry.example.api.HelloService;
 public class HelloServiceImpl implements HelloService {
 
     @Override
-    public String hello(String msg) {
-        System.out.println("hello [" + msg + "]");
-        return "hello [" + msg + "]";
+    public String echo(String msg) {
+        System.out.println("echo [" + msg + "]");
+        return "echo [" + msg + "]";
+    }
+
+    @Override
+    public void hello(String msg) {
+        System.out.println("hello "+msg);
+    }
+
+    @Override
+    public void init(PluginConfig config) {
+
+    }
+
+    @Override
+    public void destroy() {
+
     }
 }

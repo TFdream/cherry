@@ -4,12 +4,12 @@
     <context-name>cherry-demo</context-name>
 
     <!--variables-->
-    <property name="url" value="D:/logs/" />
+    <property name="path" value="D:/logs/" />
     <property name="threshold" value="100" />
 
     <!--jars-->
-    <lib dir="" regex="" />
-    <lib dir="" regex="" />
+    <lib dir="D:/plugins/lib1" regex="" />
+    <lib dir="D:/plugins/lib2" regex="" />
 
     <context-param>
         <param-name>app-version</param-name>
@@ -25,8 +25,8 @@
             <param-value>UTF-8</param-value>
         </init-param>
         <init-param>
-            <param-name>url</param-name>
-            <param-value>${url}</param-value>
+            <param-name>path</param-name>
+            <param-value>${path}</param-value>
         </init-param>
     </plugin>
 
