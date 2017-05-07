@@ -153,10 +153,12 @@ import cherry.PluginFactory;
 import cherry.example.api.HelloService;
 import cherry.example.api.UserService;
 import cherry.example.api.model.User;
+
+import java.io.File;
 import java.util.List;
 
 /**
- * 插件示例
+ * Hello world!
  *
  */
 public class App {
@@ -164,6 +166,7 @@ public class App {
     public static void main( String[] args ) {
 
         PluginFactory pluginFactory = new DefaultPluginFactory("classpath:plugins.xml");
+        //PluginFactory pluginFactory = new DefaultPluginFactory(new File("/home/plugins.xml"));
 
         HelloService helloService = (HelloService) pluginFactory.getPlugin("helloService");
         System.out.println(helloService);
@@ -179,6 +182,10 @@ public class App {
 
         List<User> list = userService.getUsers();
         System.out.println(list);
+
+        //关闭
+        pluginFactory.close();
     }
 }
+
 ```

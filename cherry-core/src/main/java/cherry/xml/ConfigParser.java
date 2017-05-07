@@ -12,9 +12,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 /**
  * ${DESCRIPTION}
@@ -22,6 +20,10 @@ import java.util.List;
  * @author Ricky Fung
  */
 public class ConfigParser {
+
+    private static final String PLACEHOLDER_PREFIX = "${";
+    private static final String PLACEHOLDER_SUFFIX = "}";
+
 
     public AppConfig parse(File file) {
         InputStream in = null;
@@ -62,17 +64,20 @@ public class ConfigParser {
         Node node = document.selectSingleNode( "//configuration/context-name" );
         config.setContextName(node.getText());
 
+        //全局变量
+        Map<String, String> props = new HashMap<>();
         List<?> list = document.selectNodes( "//configuration/property" );
         if(list!=null && list.size()>0){
             List<PropertiesPlaceholder> placeholders = new ArrayList<>(list.size());
             for (Iterator<?> iter = list.iterator(); iter.hasNext(); ) {
                 Element e = (Element) iter.next();
 
-                PropertiesPlaceholder p = new PropertiesPlaceholder();
-                p.setName(e.attributeValue("name"));
-                p.setValue(e.attributeValue("value"));
+                PropertiesPlaceholder pp = new PropertiesPlaceholder();
+                pp.setName(e.attributeValue("name"));
+                pp.setValue(e.attributeValue("value"));
 
-                placeholders.add(p);
+                placeholders.add(pp);
+                props.put(pp.getName(), pp.getValue());
             }
             config.setPlaceholders(placeholders);
         }
@@ -100,7 +105,7 @@ public class ConfigParser {
             for (Iterator<?> iter = list.iterator(); iter.hasNext(); ) {
                 Element e = (Element) iter.next();
 
-                Param param = parseParam(e);
+                Param param = parseInitParam(e, props);
 
                 contextParams.add(param);
             }
@@ -123,7 +128,7 @@ public class ConfigParser {
                 while (it!=null && it.hasNext()){
 
                     Element foo = (Element) it.next();
-                    Param param = parseParam(foo);
+                    Param param = parseInitParam(foo, props);
 
                     initParams.add(param);
                 }
@@ -151,10 +156,19 @@ public class ConfigParser {
         return config;
     }
 
-    private Param parseParam(Element foo){
+    private Param parseInitParam(Element foo, Map<String, String> props){
         Param param = new Param();
         param.setName(foo.elementText("param-name"));
-        param.setValue(foo.elementText("param-value"));
+
+        String value = foo.elementText("param-value");
+        if(value!=null && value.startsWith(PLACEHOLDER_PREFIX) && value.endsWith(PLACEHOLDER_SUFFIX)){
+            String key = value.substring(2, value.length()-1);
+            if(!props.containsKey(key)){
+                throw new IllegalArgumentException("unknown param:"+param.getName()+" value:"+value);
+            }
+            value = props.get(key);
+        }
+        param.setValue(value);
         return param;
     }
 
