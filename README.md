@@ -114,9 +114,12 @@ public class UserServiceImpl implements UserService {
 
 完成后, 使用 maven clean package 命令对xx-plugin项目打包, 将打包生成的 xx-plugin-version.jar 拷贝到某个目录下(路径由plugins.xml中<lib /> 节点dir指定)。
 
-### 3.声明Plugin
+### 3. 配置&加载Plugin
 
-plugins.xml
+创建一个新module(module名称推荐为xx-main, pom.xml需要添加xx-api依赖, 参考cherry-example/example-main), 用来加载上一步中提到的xx-plugin-version.jar。
+
+#### 1.plugins.xml
+
 ```
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration debug="false">
@@ -158,7 +161,7 @@ plugins.xml
 </configuration>
 ```
 
-### 4. 使用Plugin
+#### 2.PluginFactory
 
 App.java
 ```
